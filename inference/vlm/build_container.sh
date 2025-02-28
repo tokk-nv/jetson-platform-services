@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-rm -rf ./src/mmj_utils 
+rm -rf ./src/mmj_utils
 cp -r ./../../common/mmj_utils ./src/mmj_utils
+cp -r ./src/mmj_utils_overlay/* ./src/mmj_utils
 DOCKER_BUILDKIT=0 docker build . -t nvcr.io/nvidia/jps/vlm_infer:2.0.0
 rm -r ./src/mmj_utils
