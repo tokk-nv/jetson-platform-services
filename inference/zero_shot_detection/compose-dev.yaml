@@ -15,6 +15,8 @@
 
 services:
   jps_zero_shot_detection:
+    group_add:
+      - "44"
     image: nvcr.io/nvidia/jps/zero_shot_detection_infer:2.0.0
     user: "2009:150"
     network_mode: "host"
@@ -44,8 +46,13 @@ services:
         target: /tmp/nv_jetson_model
         read_only: True
 
+    devices:
+      - "/dev/video0:/dev/video0"
+      - "/dev/video1:/dev/video1"
+      # Add more video devices as needed
+
     command: bash -c "/jetson-services/inference/zero_shot_detection/docker_start.sh | tee -a /data/logging-volume/zero_shot_detection.log"
-    
+
     deploy:
       resources:
           limits:

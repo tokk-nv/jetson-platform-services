@@ -17,6 +17,8 @@ services:
   jps_vlm:
     image: nvcr.io/nvidia/jps/vlm_infer:2.0.0
     user: "2009:150"
+    group_add:
+      - "44"
     network_mode: "host"
     runtime: nvidia
     logging:
@@ -45,8 +47,13 @@ services:
         target: /tmp/nv_jetson_model
         read_only: True
 
+    devices:
+      - "/dev/video0:/dev/video0"
+      - "/dev/video1:/dev/video1"
+      # Add more video devices as needed
+
     command: bash -c "/jetson-services/inference/vlm/docker_start.sh | tee -a /data/logging-volume/vlm.log"
-    
+
     deploy:
       restart_policy:
         condition: always
