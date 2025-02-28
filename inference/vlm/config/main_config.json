@@ -8,6 +8,6 @@
     "max_alerts": 10,
     "alert_cooldown": 60,
     "log_level": "INFO",
-    "multi_frame_input": 1,
+    "multi_frame_input": 2,
     "multi_frame_input_time": 0
 }
