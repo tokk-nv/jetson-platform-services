@@ -17,4 +17,4 @@ rm -rf ./src/mmj_utils
 cp -r ./../../common/mmj_utils ./src/mmj_utils
 cp -r ./src/mmj_utils_overlay/* ./src/mmj_utils
 DOCKER_BUILDKIT=0 docker build . -t nvcr.io/nvidia/jps/zero_shot_detection_infer:2.0.0
-rm -r ./src/mmj_utils
+# rm -r ./src/mmj_utils

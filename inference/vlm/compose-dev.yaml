@@ -15,7 +15,7 @@
 
 services:
   jps_vlm:
-    image: nvcr.io/nvidia/jps/vlm_infer:2.0.0
+    image: vlm_v4l2:2.0.0
     user: "2009:150"
     group_add:
       - "44"
@@ -41,7 +41,6 @@ services:
       - /data/logging-volume:/data/logging-volume
       - ./config:/config
       - .:/jetson-services/inference/vlm/
-      - ./../../common/mmj_utils:/jetson-services/inference/vlm/src/mmj_utils
       - type: bind
         source: /proc/device-tree/model
         target: /tmp/nv_jetson_model

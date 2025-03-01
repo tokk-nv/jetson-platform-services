@@ -40,7 +40,6 @@ services:
       - /data/logging-volume:/data/logging-volume
       - ./config:/config
       - .:/jetson-services/inference/zero_shot_detection/
-      - ./../../common/mmj_utils:/jetson-services/inference/zero_shot_detection/src/mmj_utils
       - type: bind
         source: /proc/device-tree/model
         target: /tmp/nv_jetson_model
